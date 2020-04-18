@@ -58,3 +58,4 @@ public class TrelloTest {
             int code = retrofitBuilder.getTrelloApi().getCard(cardId, board.getKey(), board.getToken()).execute().code();
             Assert.assertEquals(code, 404);
         }
+}
