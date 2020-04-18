@@ -13,7 +13,7 @@ public class TrelloTest {
         public void checkCreateBoard() throws IOException {
             RetrofitBuilder retrofitBuilder = new RetrofitBuilder();
             Board board = new Board();
-            String name = "Slava First";
+            String name = "My First Board";
             Board createdBoard = retrofitBuilder.getTrelloApi().createBoard(board, name).execute().body();
             boardId = createdBoard.getId();
             Assert.assertEquals(createdBoard.getName(),name);
@@ -31,7 +31,7 @@ public class TrelloTest {
         public void checkCreateCard() throws IOException, InterruptedException {
             RetrofitBuilder retrofitBuilder = new RetrofitBuilder();
             Board board = new Board();
-            String cardName = "New Card First";
+            String cardName = "New Card";
             Board createdCard = retrofitBuilder.getTrelloApi().createCard(board, idList,cardName).execute().body();
             cardId = createdCard.getId();
             Assert.assertEquals(createdCard.getName(), cardName);
@@ -40,7 +40,7 @@ public class TrelloTest {
          public void checkUpdateCard() throws IOException {
             RetrofitBuilder retrofitBuilder = new RetrofitBuilder();
             Board board = new Board();
-            String updatedCardName = "Finally it is working";
+            String updatedCardName = "OMG! It finally works!!";
             board.setCardName(updatedCardName);
             Board updatedCard = retrofitBuilder.getTrelloApi().updateCard(board,cardId,updatedCardName).execute().body();
             Assert.assertEquals(updatedCard.getName(),updatedCardName);
